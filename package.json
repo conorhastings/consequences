@@ -1,0 +1,16 @@
+{
+  "name": "Consequences",
+  "version": "1.0.0",
+  "description": "consequences",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Conor Hastings",
+  "license": "MIT",
+  "dependencies": {
+    "fast-csv": "^0.6.0",
+    "playback": "^0.2.0",
+    "say": "^0.6.0"
+  }
+}
