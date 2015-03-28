@@ -10,7 +10,12 @@
   "license": "MIT",
   "dependencies": {
     "fast-csv": "^0.6.0",
+    "minimist": "^1.1.1",
     "playback": "^0.2.0",
     "say": "^0.6.0"
+  },
+  "preferGlobal": true,  
+  "bin": {
+    "consequences": "index.js"
   }
 }

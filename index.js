@@ -4,6 +4,10 @@ var fs = require("fs");
 var itunes = require('playback');
 var stream = fs.createReadStream("guests.csv");
 var attending = [];
+var argv = require('minimist')(process.argv.slice(2));
+
+var stack = argv.stack;
+var from = argv.from;
 var csvStream = csv()
     .on("data", function(data){
          if(data[1] === "Going" && data[0] !== "Chris Robertson"){
@@ -11,10 +15,11 @@ var csvStream = csv()
          }
     })
     .on("end", function(){
-    	var randAttendee = attending[Math.floor(Math.random() * attending.length)];
+    	var randAttendee = stack || attending[Math.floor(Math.random() * attending.length)];
+    	from = from || attending[Math.floor(Math.random() * attending.length)];
     	itunes.pause();
-  		console.log( "Time for consequences " + randAttendee);
-  		say.speak(null, "Time for consequences " + randAttendee , function () {
+  		console.log( "Time for consequences " + randAttendee + " from " + from);
+  		say.speak(null, "Time for consequences " + randAttendee + " from " + from , function () {
      		itunes.play();
 		});
   		
